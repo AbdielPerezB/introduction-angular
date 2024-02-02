@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div  class="container-fluid">
+        <!-- We highlight the first element of our routes -->
+        <a class="navbar-brand" [routerLink]="rutas[0].path">{{rutas[0].name}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- We use nfForOf to go through our list of routes -->
+                <ng-template ngFor let-ruta [ngForOf]="rutas">             
+                    <li *ngIf="ruta.name != 'Home'" class="nav-item"> <!--We use ngIf to except the first route-->
+                        <a class="nav-link" [routerLink]="ruta.path">{{ruta.name}}</a>
+                    </li>    
+                </ng-template>       
+            </ul>
+        </div>
+        
+    </div>
+</nav>
